@@ -22,6 +22,7 @@ using namespace std;
 @property (nonatomic) AVAssetReader *assetReader;
 
 @property (nonatomic) BOOL firstFrameIsProcessed;
+@property (nonatomic) BOOL playing;
 
 @property (nonatomic) CGPoint topLeft;
 
@@ -64,15 +65,24 @@ using namespace std;
     }
 }
 
+- (IBAction)touchDown:(id)sender {
+    if (!self.firstFrameIsProcessed) {
+        self.playing = YES;
+    }
+}
+
+- (IBAction)touchUp:(id)sender {
+    if (!self.firstFrameIsProcessed) {
+        self.playing = NO;
+    }
+}
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    NSString* cascadePath = [[NSBundle mainBundle]
-//                             pathForResource:@"haarcascade_frontalface_alt"
-//                             ofType:@"xml"];
-//    faceDetector.load([cascadePath UTF8String]);
-
     
-    NSURL *videoURL = [[NSBundle mainBundle] URLForResource:@"video1" withExtension:@"mp4"];
+    NSURL *videoURL = [[NSBundle mainBundle] URLForResource:@"video10" withExtension:@"mp4"];
     AVAsset *asset = [AVAsset assetWithURL:videoURL];
     NSError *err;
     AVAssetReader *assetReader = [[AVAssetReader alloc] initWithAsset:asset error:&err];
@@ -93,6 +103,25 @@ using namespace std;
     self.assetReader = assetReader;
 
     [self generateFirstFrame];
+}
+
+- (void) play {
+    if ( [self.assetReader status]==AVAssetReaderStatusReading ) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0/30 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            if (!self.playing) {
+                return;
+            }
+            [self generateFirstFrame];
+            [self play];
+        });
+    }
+}
+
+- (void)setPlaying:(BOOL)playing {
+    _playing = playing;
+    if (playing) {
+        [self play];
+    }
 }
 
 - (void) generateFirstFrame
@@ -181,7 +210,6 @@ using namespace std;
     
     cv::meanShift(dst, track_window, term_crit);
     cv::Scalar magenta = cv::Scalar(255, 0, 255);
-//    cv::rectangle(image, track_window.tl(), track_window.br(), magenta);
     cv::Point tl = track_window.tl();
     double radius = track_window.size().width/2;
     cv::circle(image, cv::Point(tl.x+radius, tl.y+radius), radius, magenta);

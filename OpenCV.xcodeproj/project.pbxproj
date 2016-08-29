@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		7320DC065EE9DD866357F5F0 /* Pods_OpenCV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56F740A2CF3331C52F144201 /* Pods_OpenCV.framework */; };
+		E43BD0241D749ABE00C6C4EA /* video3.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E43BD0231D749ABE00C6C4EA /* video3.mp4 */; };
+		E43BD0261D749B4D00C6C4EA /* video4.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E43BD0251D749B4D00C6C4EA /* video4.mp4 */; };
+		E43BD0281D749C1B00C6C4EA /* video5.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E43BD0271D749C1B00C6C4EA /* video5.mp4 */; };
+		E43BD02A1D74A02A00C6C4EA /* video6.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E43BD0291D74A02A00C6C4EA /* video6.mp4 */; };
+		E43BD02C1D74A08800C6C4EA /* video7.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E43BD02B1D74A08800C6C4EA /* video7.mp4 */; };
+		E43BD02E1D74A0E300C6C4EA /* video8.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E43BD02D1D74A0E300C6C4EA /* video8.mp4 */; };
+		E43BD0301D74A11A00C6C4EA /* video9.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E43BD02F1D74A11A00C6C4EA /* video9.mp4 */; };
+		E43BD0321D74A15D00C6C4EA /* video10.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E43BD0311D74A15D00C6C4EA /* video10.mp4 */; };
 		E45221A41D676516009B4717 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E45221A31D676516009B4717 /* main.m */; };
 		E45221A71D676516009B4717 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E45221A61D676516009B4717 /* AppDelegate.m */; };
 		E45221AA1D676516009B4717 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = E45221A91D676516009B4717 /* ViewController.mm */; };
@@ -23,6 +31,14 @@
 		052AC4612D17FFCD6CDB91B9 /* Pods-OpenCV.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenCV.release.xcconfig"; path = "Pods/Target Support Files/Pods-OpenCV/Pods-OpenCV.release.xcconfig"; sourceTree = "<group>"; };
 		56F740A2CF3331C52F144201 /* Pods_OpenCV.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OpenCV.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69395358C6440D2CBA71114A /* Pods-OpenCV.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenCV.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OpenCV/Pods-OpenCV.debug.xcconfig"; sourceTree = "<group>"; };
+		E43BD0231D749ABE00C6C4EA /* video3.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video3.mp4; sourceTree = "<group>"; };
+		E43BD0251D749B4D00C6C4EA /* video4.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video4.mp4; sourceTree = "<group>"; };
+		E43BD0271D749C1B00C6C4EA /* video5.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video5.mp4; sourceTree = "<group>"; };
+		E43BD0291D74A02A00C6C4EA /* video6.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video6.mp4; sourceTree = "<group>"; };
+		E43BD02B1D74A08800C6C4EA /* video7.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video7.mp4; sourceTree = "<group>"; };
+		E43BD02D1D74A0E300C6C4EA /* video8.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video8.mp4; sourceTree = "<group>"; };
+		E43BD02F1D74A11A00C6C4EA /* video9.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video9.mp4; sourceTree = "<group>"; };
+		E43BD0311D74A15D00C6C4EA /* video10.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video10.mp4; sourceTree = "<group>"; };
 		E452219F1D676516009B4717 /* OpenCV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenCV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E45221A31D676516009B4717 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E45221A51D676516009B4717 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -76,6 +92,14 @@
 			children = (
 				E45221B91D67672F009B4717 /* video1.mp4 */,
 				E45221C81D6BA2D8009B4717 /* video2.mp4 */,
+				E43BD0231D749ABE00C6C4EA /* video3.mp4 */,
+				E43BD0251D749B4D00C6C4EA /* video4.mp4 */,
+				E43BD0271D749C1B00C6C4EA /* video5.mp4 */,
+				E43BD0291D74A02A00C6C4EA /* video6.mp4 */,
+				E43BD02B1D74A08800C6C4EA /* video7.mp4 */,
+				E43BD02D1D74A0E300C6C4EA /* video8.mp4 */,
+				E43BD02F1D74A11A00C6C4EA /* video9.mp4 */,
+				E43BD0311D74A15D00C6C4EA /* video10.mp4 */,
 			);
 			name = Videos;
 			sourceTree = "<group>";
@@ -184,9 +208,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				E45221B21D676516009B4717 /* LaunchScreen.storyboard in Resources */,
+				E43BD0301D74A11A00C6C4EA /* video9.mp4 in Resources */,
+				E43BD0241D749ABE00C6C4EA /* video3.mp4 in Resources */,
 				E45221AF1D676516009B4717 /* Assets.xcassets in Resources */,
+				E43BD02C1D74A08800C6C4EA /* video7.mp4 in Resources */,
 				E45221C91D6BA2D8009B4717 /* video2.mp4 in Resources */,
 				E45221AD1D676516009B4717 /* Main.storyboard in Resources */,
+				E43BD0281D749C1B00C6C4EA /* video5.mp4 in Resources */,
+				E43BD0261D749B4D00C6C4EA /* video4.mp4 in Resources */,
+				E43BD0321D74A15D00C6C4EA /* video10.mp4 in Resources */,
+				E43BD02E1D74A0E300C6C4EA /* video8.mp4 in Resources */,
+				E43BD02A1D74A02A00C6C4EA /* video6.mp4 in Resources */,
 				E45221BA1D67672F009B4717 /* video1.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
