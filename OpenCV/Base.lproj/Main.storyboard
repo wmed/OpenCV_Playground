@@ -25,16 +25,76 @@
                                     <constraint firstAttribute="width" secondItem="VEB-Ox-o5A" secondAttribute="height" multiplier="1:1" id="PZc-Ud-V7B"/>
                                 </constraints>
                             </imageView>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="106" minValue="0.0" maxValue="179" translatesAutoresizingMaskIntoConstraints="NO" id="ZWw-jS-qM7">
+                                <rect key="frame" x="18" y="22" width="564" height="31"/>
+                                <connections>
+                                    <action selector="sliderMoved:" destination="BYZ-38-t0r" eventType="valueChanged" id="hMC-Kg-8fC"/>
+                                </connections>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="83" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="mJe-rG-Rgh">
+                                <rect key="frame" x="18" y="60" width="564" height="31"/>
+                                <connections>
+                                    <action selector="sliderMoved:" destination="BYZ-38-t0r" eventType="valueChanged" id="TY5-JG-pwt"/>
+                                </connections>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="58" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="mFl-QS-QPd">
+                                <rect key="frame" x="18" y="98" width="564" height="31"/>
+                                <connections>
+                                    <action selector="sliderMoved:" destination="BYZ-38-t0r" eventType="valueChanged" id="AXj-cM-pj2"/>
+                                </connections>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="255" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="2FS-Zl-XAL">
+                                <rect key="frame" x="18" y="562" width="564" height="31"/>
+                                <connections>
+                                    <action selector="sliderMoved:" destination="BYZ-38-t0r" eventType="valueChanged" id="wsy-zj-S7l"/>
+                                </connections>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="145" minValue="0.0" maxValue="179" translatesAutoresizingMaskIntoConstraints="NO" id="Q2i-qu-034">
+                                <rect key="frame" x="18" y="486" width="564" height="31"/>
+                                <connections>
+                                    <action selector="sliderMoved:" destination="BYZ-38-t0r" eventType="valueChanged" id="8vj-Kf-6tQ"/>
+                                </connections>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="246" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="zVM-2v-6zf">
+                                <rect key="frame" x="18" y="524" width="564" height="31"/>
+                                <connections>
+                                    <action selector="sliderMoved:" destination="BYZ-38-t0r" eventType="valueChanged" id="gG5-9a-ZdZ"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Q2i-qu-034" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="10X-H6-TuV"/>
+                            <constraint firstItem="zVM-2v-6zf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="320-6z-qnn"/>
+                            <constraint firstItem="mFl-QS-QPd" firstAttribute="top" secondItem="mJe-rG-Rgh" secondAttribute="bottom" constant="8" id="3q3-UI-IdZ"/>
+                            <constraint firstItem="ZWw-jS-qM7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="7lN-fB-eR9"/>
+                            <constraint firstItem="mJe-rG-Rgh" firstAttribute="top" secondItem="ZWw-jS-qM7" secondAttribute="bottom" constant="8" id="Gcc-6O-PtQ"/>
+                            <constraint firstAttribute="trailing" secondItem="Q2i-qu-034" secondAttribute="trailing" constant="20" id="HtE-ft-Mmb"/>
+                            <constraint firstAttribute="trailing" secondItem="ZWw-jS-qM7" secondAttribute="trailing" constant="20" id="M5H-aB-IhW"/>
+                            <constraint firstItem="2FS-Zl-XAL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="Ngy-RS-MqI"/>
+                            <constraint firstItem="2FS-Zl-XAL" firstAttribute="top" secondItem="zVM-2v-6zf" secondAttribute="bottom" constant="8" id="PYQ-qo-CJI"/>
                             <constraint firstItem="VEB-Ox-o5A" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="T4E-hV-9hf"/>
+                            <constraint firstAttribute="trailing" secondItem="zVM-2v-6zf" secondAttribute="trailing" constant="20" id="UD7-1H-Hor"/>
+                            <constraint firstItem="mJe-rG-Rgh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="a3a-ip-DDb"/>
                             <constraint firstItem="VEB-Ox-o5A" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="b4F-MN-aWa"/>
+                            <constraint firstAttribute="trailing" secondItem="mJe-rG-Rgh" secondAttribute="trailing" constant="20" id="eUD-vE-fil"/>
+                            <constraint firstAttribute="trailing" secondItem="mFl-QS-QPd" secondAttribute="trailing" constant="20" id="fxk-iE-Vni"/>
                             <constraint firstAttribute="trailing" secondItem="VEB-Ox-o5A" secondAttribute="trailing" id="iQP-8f-yHr"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="2FS-Zl-XAL" secondAttribute="bottom" constant="8" id="jMK-Hr-PW3"/>
+                            <constraint firstItem="ZWw-jS-qM7" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="22" id="o3L-9H-hFg"/>
+                            <constraint firstItem="zVM-2v-6zf" firstAttribute="top" secondItem="Q2i-qu-034" secondAttribute="bottom" constant="8" id="pmj-9W-wlb"/>
+                            <constraint firstItem="mFl-QS-QPd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="ss5-em-fxA"/>
+                            <constraint firstAttribute="trailing" secondItem="2FS-Zl-XAL" secondAttribute="trailing" constant="20" id="yCN-kF-erN"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="hLower" destination="ZWw-jS-qM7" id="3uk-9w-AAa"/>
+                        <outlet property="hUpper" destination="Q2i-qu-034" id="EFA-w6-tJh"/>
                         <outlet property="imageView" destination="VEB-Ox-o5A" id="kR2-Z7-68W"/>
+                        <outlet property="sLower" destination="mJe-rG-Rgh" id="U3k-GK-0uh"/>
+                        <outlet property="sUpper" destination="zVM-2v-6zf" id="Tmf-yJ-vcg"/>
+                        <outlet property="vLower" destination="mFl-QS-QPd" id="TSy-B9-nh0"/>
+                        <outlet property="vUpper" destination="2FS-Zl-XAL" id="ZgA-Km-L81"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

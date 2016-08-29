@@ -25,12 +25,39 @@ using namespace std;
 
 @property (nonatomic) CGPoint topLeft;
 
+
+@property (nonatomic) UIImage *currentImage;
+
+@property (weak, nonatomic) IBOutlet UISlider *hLower;
+@property (weak, nonatomic) IBOutlet UISlider *sLower;
+@property (weak, nonatomic) IBOutlet UISlider *vLower;
+
+@property (weak, nonatomic) IBOutlet UISlider *hUpper;
+@property (weak, nonatomic) IBOutlet UISlider *sUpper;
+@property (weak, nonatomic) IBOutlet UISlider *vUpper;
 @end
 
 @implementation ViewController {
     TermCriteria term_crit;
     cv::Rect track_window;
     Mat roi_hist;
+    
+    Scalar lowerBound;
+    Scalar upperBound;
+}
+
+- (IBAction)sliderMoved:(id)sender {
+    lowerBound = Scalar(self.hLower.value, self.sLower.value, self.vLower.value);
+    upperBound = Scalar(self.hUpper.value, self.sUpper.value, self.vUpper.value);
+    
+    if (self.firstFrameIsProcessed) {
+        return;
+    }
+    
+    Mat mat = [self cvMatFromUIImage:self.currentImage];
+    [self processNextFrame:mat];
+    
+    self.imageView.image = [self UIImageFromCVMat:mat];
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
@@ -93,6 +120,11 @@ using namespace std;
     self.assetReader = assetReader;
 
     [self generateFirstFrame];
+    
+    lowerBound = Scalar(self.hLower.value, self.sLower.value, self.vLower.value);
+    upperBound = Scalar(self.hUpper.value, self.sUpper.value, self.vUpper.value);
+//    [self nextFrame];
+
 }
 
 - (void) generateFirstFrame
@@ -103,6 +135,7 @@ using namespace std;
         UIImage *image = [UIImage imageWithCGImage:imageRef];
         
         self.imageView.image = image;
+        self.currentImage = image;
     }
 }
 
@@ -118,7 +151,7 @@ using namespace std;
                 
                 self.imageView.image = image;
                 
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)((1) * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)((1.0/30) * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                     [self nextFrame];
                 });
             }
@@ -147,58 +180,57 @@ using namespace std;
 
 - (void)processFirstFrame:(Mat&)image;
 {
-    term_crit = TermCriteria(TermCriteria::COUNT|TermCriteria::EPS, 10, 1);
-    
-    Mat roi(image, track_window);
-    Mat hsv_roi;
-    cvtColor(roi, hsv_roi, COLOR_BGR2HSV);
-    
-    Mat mask;
-    cv::inRange(hsv_roi, cv::Scalar(0,60,32), cv::Scalar(180,255,255), mask);
-    
-    int channels[] = {0};
-    int histSize[] = {180};
-    float range[] = { 0, 180 };
-    const float* ranges[] = { range };
-    cv::calcHist(&hsv_roi, 1, channels, mask, roi_hist, 1, histSize, ranges);
-    
-    cv::normalize(roi_hist, roi_hist, 0, 255, NORM_MINMAX);
-    
-    cv::Scalar magenta = cv::Scalar(255, 0, 255);
-    cv::rectangle(image, track_window.tl(), track_window.br(), magenta);
+
 }
 
 - (void)processNextFrame:(Mat&)image;
 {
     Mat hsv;
-    cv::cvtColor(image, hsv, COLOR_BGR2HSV);
+    cvtColor(image, hsv, CV_BGR2HSV);
     
-    Mat dst;
-    int channels[] = {0};
-    float range[] = { 0, 180 };
-    const float* ranges[] = { range };
-    cv::calcBackProject(&hsv, 1, channels, roi_hist, dst, ranges);
+    Mat mask;
+    inRange(hsv, lowerBound, upperBound, mask);
     
-    cv::meanShift(dst, track_window, term_crit);
-    cv::Scalar magenta = cv::Scalar(255, 0, 255);
-    cv::rectangle(image, track_window.tl(), track_window.br(), magenta);
+//    erode(mask, mask, NULL, cv::Point(-1,-1), 2);
+//    dilate(mask, mask, NULL, cv::Point(-1,-1), 2);
     
-    int baseline;
-    auto string = "Name";
-    cv::Size fontSize = cv::getTextSize(string, FONT_HERSHEY_SIMPLEX, 1, 1, &baseline);
-    cv::Point2f fontPoint(track_window.x-(fontSize.width-track_window.width)/2,track_window.y);
-    cv::putText(image, string, fontPoint, FONT_HERSHEY_SIMPLEX, 1, magenta);
+//    mask.copyTo(image);
     
-//    RotatedRect rotatedRect = cv::CamShift(dst, track_window, term_crit);
-//    cv::Scalar magenta = cv::Scalar(255, 0, 255);
-//    Point2f points[4];
-//    rotatedRect.points(points);
-//    
-//    cv::line(image, points[0], points[1], magenta);
-//    cv::line(image, points[1], points[2], magenta);
-//    cv::line(image, points[2], points[3], magenta);
-//    cv::line(image, points[3], points[0], magenta);
+    vector<vector<cv::Point> > contours;
+
+    findContours(mask, contours, RETR_EXTERNAL, CHAIN_APPROX_SIMPLE);
     
+    if (contours.size() > 0) {
+//        vector<cv::Point> maxContour;
+//        for (auto i = contours.begin(); i != contours.end(); i++) {
+//            vector<cv::Point> contour = *i;
+//            if (contour.size() > maxContour.size()) {
+//                maxContour = contour;
+//            }
+//        }
+//        
+//        double area = contourArea(maxContour);
+//        
+//        cv::Point2f center;
+//        float radius;
+//        minEnclosingCircle(maxContour, center, radius);
+//        
+//        
+//        cv::circle(image, center, radius, Scalar(255,0,0));
+        
+        
+        
+        for (auto i = contours.begin(); i != contours.end(); i++) {
+            vector<cv::Point> contour = *i;
+            
+            cv::Point2f center;
+            float radius;
+            minEnclosingCircle(contour, center, radius);
+            
+            
+            cv::circle(image, center, radius, Scalar(255,0,0));
+        }
+    }
 }
 
 - (CGImageRef) imageFromSampleBuffer:(CMSampleBufferRef) sampleBuffer // Create a CGImageRef from sample buffer data
