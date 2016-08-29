@@ -14,7 +14,7 @@
 		E45221AD1D676516009B4717 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E45221AB1D676516009B4717 /* Main.storyboard */; };
 		E45221AF1D676516009B4717 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E45221AE1D676516009B4717 /* Assets.xcassets */; };
 		E45221B21D676516009B4717 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E45221B01D676516009B4717 /* LaunchScreen.storyboard */; };
-		E45221BA1D67672F009B4717 /* video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E45221B91D67672F009B4717 /* video.mp4 */; };
+		E45221BA1D67672F009B4717 /* video1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E45221B91D67672F009B4717 /* video1.mp4 */; };
 		E45221C01D67A9EE009B4717 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45221BF1D67A9EE009B4717 /* AVFoundation.framework */; };
 		E45221C91D6BA2D8009B4717 /* video2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E45221C81D6BA2D8009B4717 /* video2.mp4 */; };
 /* End PBXBuildFile section */
@@ -33,7 +33,7 @@
 		E45221AE1D676516009B4717 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E45221B11D676516009B4717 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E45221B31D676516009B4717 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E45221B91D67672F009B4717 /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video.mp4; sourceTree = "<group>"; };
+		E45221B91D67672F009B4717 /* video1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video1.mp4; sourceTree = "<group>"; };
 		E45221BD1D67A868009B4717 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		E45221BF1D67A9EE009B4717 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		E45221C81D6BA2D8009B4717 /* video2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video2.mp4; sourceTree = "<group>"; };
@@ -69,6 +69,15 @@
 				052AC4612D17FFCD6CDB91B9 /* Pods-OpenCV.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		E43BD0221D74967A00C6C4EA /* Videos */ = {
+			isa = PBXGroup;
+			children = (
+				E45221B91D67672F009B4717 /* video1.mp4 */,
+				E45221C81D6BA2D8009B4717 /* video2.mp4 */,
+			);
+			name = Videos;
 			sourceTree = "<group>";
 		};
 		E45221961D676516009B4717 = {
@@ -108,8 +117,7 @@
 		E45221A21D676516009B4717 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				E45221B91D67672F009B4717 /* video.mp4 */,
-				E45221C81D6BA2D8009B4717 /* video2.mp4 */,
+				E43BD0221D74967A00C6C4EA /* Videos */,
 				E45221A31D676516009B4717 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -179,7 +187,7 @@
 				E45221AF1D676516009B4717 /* Assets.xcassets in Resources */,
 				E45221C91D6BA2D8009B4717 /* video2.mp4 in Resources */,
 				E45221AD1D676516009B4717 /* Main.storyboard in Resources */,
-				E45221BA1D67672F009B4717 /* video.mp4 in Resources */,
+				E45221BA1D67672F009B4717 /* video1.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

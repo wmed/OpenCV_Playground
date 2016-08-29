@@ -72,7 +72,7 @@ using namespace std;
 //    faceDetector.load([cascadePath UTF8String]);
 
     
-    NSURL *videoURL = [[NSBundle mainBundle] URLForResource:@"video2" withExtension:@"mp4"];
+    NSURL *videoURL = [[NSBundle mainBundle] URLForResource:@"video1" withExtension:@"mp4"];
     AVAsset *asset = [AVAsset assetWithURL:videoURL];
     NSError *err;
     AVAssetReader *assetReader = [[AVAssetReader alloc] initWithAsset:asset error:&err];
@@ -181,23 +181,10 @@ using namespace std;
     
     cv::meanShift(dst, track_window, term_crit);
     cv::Scalar magenta = cv::Scalar(255, 0, 255);
-    cv::rectangle(image, track_window.tl(), track_window.br(), magenta);
-    
-    int baseline;
-    auto string = "Name";
-    cv::Size fontSize = cv::getTextSize(string, FONT_HERSHEY_SIMPLEX, 1, 1, &baseline);
-    cv::Point2f fontPoint(track_window.x-(fontSize.width-track_window.width)/2,track_window.y);
-    cv::putText(image, string, fontPoint, FONT_HERSHEY_SIMPLEX, 1, magenta);
-    
-//    RotatedRect rotatedRect = cv::CamShift(dst, track_window, term_crit);
-//    cv::Scalar magenta = cv::Scalar(255, 0, 255);
-//    Point2f points[4];
-//    rotatedRect.points(points);
-//    
-//    cv::line(image, points[0], points[1], magenta);
-//    cv::line(image, points[1], points[2], magenta);
-//    cv::line(image, points[2], points[3], magenta);
-//    cv::line(image, points[3], points[0], magenta);
+//    cv::rectangle(image, track_window.tl(), track_window.br(), magenta);
+    cv::Point tl = track_window.tl();
+    double radius = track_window.size().width/2;
+    cv::circle(image, cv::Point(tl.x+radius, tl.y+radius), radius, magenta);
     
 }
 
