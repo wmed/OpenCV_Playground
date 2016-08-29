@@ -82,7 +82,7 @@ using namespace std;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSURL *videoURL = [[NSBundle mainBundle] URLForResource:@"video10" withExtension:@"mp4"];
+    NSURL *videoURL = [[NSBundle mainBundle] URLForResource:@"video1" withExtension:@"mp4"];
     AVAsset *asset = [AVAsset assetWithURL:videoURL];
     NSError *err;
     AVAssetReader *assetReader = [[AVAssetReader alloc] initWithAsset:asset error:&err];
